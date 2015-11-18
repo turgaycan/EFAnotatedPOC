@@ -7,7 +7,7 @@ namespace EFAnotatedPOC.Context
     public class Context<T> : EntityContext where T : BaseEntity
     {
         public Context()
-            : base("name=Netone2004Context")
+            : base("name=YourDomainContext")
         {
 
         }
