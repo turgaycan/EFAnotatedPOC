@@ -1,6 +1,4 @@
-﻿
-
-using EFAnotatedPOC.Domain;
+﻿using EFAnotatedPOC.Domain;
 using EFAnotatedPOC.Repository;
 
 namespace EFAnotatedPOC.Service

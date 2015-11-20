@@ -1,4 +1,4 @@
-﻿CurrentStateCallInfo ddl script
+﻿#CurrentStateCallInfo ddl script
 
 CREATE TABLE [dbo].[CURRENT_STATE_CALL_INFO]
 (
@@ -7,3 +7,21 @@ CREATE TABLE [dbo].[CURRENT_STATE_CALL_INFO]
 [AGENT_ID] VARCHAR(50) NULL,
 [TN_CUSTOMER_ID] VARCHAR(50) NOT NULL
 )
+
+#Course ddl script
+
+CREATE TABLE [dbo].[T_COURSE] (
+    [ID]   INT          IDENTITY (1, 1) NOT NULL,
+    [NAME] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+#Student ddl script
+
+CREATE TABLE [dbo].[T_STUDENT] (
+    [ID]        BIGINT       IDENTITY (1, 1) NOT NULL,
+    [NAME]      VARCHAR (50) NULL,
+    [COURSE_ID] INT          NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    CONSTRAINT [FK_T_STUDENT_T_COURSE] FOREIGN KEY ([COURSE_ID]) REFERENCES [dbo].[T_COURSE] ([ID])
+);

@@ -53,13 +53,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Course.cs" />
+    <Compile Include="Domain\Student.cs" />
     <Compile Include="Repository\Base\AbstractBaseEntityRepository.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Domain\CurrentStateCallInfo.cs" />
+    <Compile Include="Repository\CourseRepository.cs" />
     <Compile Include="Repository\CurrentStateCallInfoRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Service\CourseService.cs" />
     <Compile Include="Service\CurrentStateCallInfoService.cs" />
+    <Compile Include="Service\StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -69,6 +75,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="SQLScripts\DDLScripts.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

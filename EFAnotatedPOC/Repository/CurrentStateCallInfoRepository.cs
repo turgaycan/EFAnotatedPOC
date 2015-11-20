@@ -1,4 +1,5 @@
-﻿using EFAnotatedPOC.Domain;
+﻿using System;
+using EFAnotatedPOC.Domain;
 using EFAnotatedPOC.Repository.Base;
 
 namespace EFAnotatedPOC.Repository

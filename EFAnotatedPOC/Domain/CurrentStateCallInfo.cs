@@ -1,16 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 using EFGeneric.Base.Entity;
 
 namespace EFAnotatedPOC.Domain
 {
     [Table("CURRENT_STATE_CALL_INFO", Schema = "dbo")]
-    public class CurrentStateCallInfo : BaseEntity
+    public class CurrentStateCallInfo : BaseEntity<long>
     {
 
         [Key]
         [Column("ID")]
-        public long Id { get; set; }
+        public override long Id { get; set; }
 
         [Column("CALL_ID")]
         public string CallId { get; set; }
@@ -29,5 +31,6 @@ namespace EFAnotatedPOC.Domain
             AgentId = agentId;
             TnCustomerId = tnCustomerId;
         }
+
     }
 }
