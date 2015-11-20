@@ -8,8 +8,9 @@ namespace EFAnotatedPOC.Context
     {
 
         public Context()
-            : base("name=Netone2004Context")
+            : base("name=YourContext")
         {
+			//Log your linq sql queries to console..
             Database.Log = s => Debug.Write(s);
         }
 
