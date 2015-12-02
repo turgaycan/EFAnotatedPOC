@@ -4,9 +4,9 @@ using EFAnotatedPOC.Repository.Base;
 
 namespace EFAnotatedPOC.Repository
 {
-    public class CourseRepository : AbstractBaseEntityRepository<Course>
+    public class CourseRepository : AbstractBaseEntityRepository<Course, long>
     {
-        public override Course FindById(object id)
+        public Course First()
         {
             return Context.TSet.First();
         }

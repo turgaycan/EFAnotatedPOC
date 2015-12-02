@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using EFGeneric.Base.Entity;
 
 namespace EFAnotatedPOC.Domain
@@ -10,7 +7,6 @@ namespace EFAnotatedPOC.Domain
     public class CurrentStateCallInfo : BaseEntity<long>
     {
 
-        [Key]
         [Column("ID")]
         public override long Id { get; set; }
 
@@ -25,11 +21,12 @@ namespace EFAnotatedPOC.Domain
 
         public CurrentStateCallInfo() { }
 
-        public CurrentStateCallInfo(string callId, string agentId, string tnCustomerId)
+        public CurrentStateCallInfo(string callId, string agentId, string tnCustomerId, long id)
         {
             CallId = callId;
             AgentId = agentId;
             TnCustomerId = tnCustomerId;
+            Id = id;
         }
 
     }

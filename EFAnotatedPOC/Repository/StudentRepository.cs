@@ -3,7 +3,7 @@ using EFAnotatedPOC.Repository.Base;
 
 namespace EFAnotatedPOC.Repository
 {
-    public class StudentRepository : AbstractBaseEntityRepository<Student>
+    public class StudentRepository : AbstractBaseEntityRepository<Student, long>
     {
     }
 }

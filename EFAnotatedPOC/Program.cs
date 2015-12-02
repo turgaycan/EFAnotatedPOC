@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using EFAnotatedPOC.Context;
+using System.Data;
 using EFAnotatedPOC.Domain;
 using EFAnotatedPOC.Service;
 
@@ -12,20 +12,44 @@ namespace EFAnotatedPOC
         private static readonly CurrentStateCallInfoService currentStateCallInfoService = new CurrentStateCallInfoService();
         private static readonly StudentService studentService = new StudentService();
         private static readonly CourseService courseService = new CourseService();
-
+        
         public static void Main(string[] args)
         {
-            try
-            {
-                PopulateTestData();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            //try
+            //{
+            //    PopulateTestData();
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+
 
             try
             {
+
+                Console.Out.WriteLine(SqlDbType.DateTime);
+
+                Course firstCourse = courseService.FindFirstOne();
+
+                Console.WriteLine("First Course ID : " + firstCourse.Id);
+
+                Course foundCourse = courseService.FindById(firstCourse.Id);
+
+                Console.WriteLine("Found Course : " + foundCourse.Id + " " + foundCourse.Name + " " + foundCourse.CreateDate + " " + foundCourse.IsDeleted);
+
+                foundCourse.Name = "Turgay CAN222";
+                foundCourse.IsDeleted = true;
+                Course mergedCourse = courseService.Merge(firstCourse);
+
+                courseService.Delete(firstCourse);
+
+                Console.WriteLine("Merged Course : " + mergedCourse.Id + " " + mergedCourse.Name + " " + firstCourse.CreateDate + " " + mergedCourse.IsDeleted);
+
+                Course newCourse = new Course("course new ");
+                courseService.Save(newCourse);
+
+                //courseService.Save(new Course("course22"));
                 //Course course = courseService.FindById(11l);
                 //studentService.Save(new Student("student12" , course));
                 List<Student> students = studentService.GetStudents();
@@ -37,16 +61,22 @@ namespace EFAnotatedPOC
                     Console.WriteLine(student.Course.Name);
                 }
 
-                //Console.ReadLine();
+                foreach (Course course in courseService.GetAllCourses())
+                {
+                    Console.WriteLine("Not Soft Deleted Found Course : " + course.Id + " " + course.Name + " " + course.CreateDate + " " + course.IsDeleted);
+                }
+
+                Console.ReadLine();
                 //CurrentStateCallInfo currentStateCallInfo = new CurrentStateCallInfo("1", "1" ,"");
                 //currentStateCallInfoService.Save(currentStateCallInfo);
 
                 //CurrentStateCallInfo currentStateCallInfo2 = new CurrentStateCallInfo("1", "1" ,"");
                 //currentStateCallInfoService.Save(currentStateCallInfo);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Console.WriteLine(e.StackTrace);
+                throw e;
             }
 
         }

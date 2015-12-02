@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EFGeneric">
-      <HintPath>..\..\..\EFGeneric\EFGeneric\EFGeneric\bin\Release\EFGeneric.dll</HintPath>
+    <Reference Include="EFGeneric, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\EFGeneric\EFGeneric\EFGeneric\bin\Debug\EFGeneric.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>

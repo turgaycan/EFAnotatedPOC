@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using EFGeneric.Base.Entity;
 
 namespace EFAnotatedPOC.Domain
@@ -8,7 +7,6 @@ namespace EFAnotatedPOC.Domain
     public class Student : BaseEntity<long>
     {
 
-        [Key]
         [Column("ID")]
         public override long Id { get; set; }
 
@@ -16,7 +14,7 @@ namespace EFAnotatedPOC.Domain
         public string Name { get; set; }
 
         [Column("COURSE_ID")]
-        public int CourseId { get; set; }
+        public long CourseId { get; set; }
         [ForeignKey("CourseId")]
         public virtual Course Course { get; set; }
 
@@ -27,6 +25,7 @@ namespace EFAnotatedPOC.Domain
             Name = name;
             Course = course;
         }
+
 
     }
 

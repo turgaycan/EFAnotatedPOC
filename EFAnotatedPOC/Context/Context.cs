@@ -1,16 +1,15 @@
 ﻿using System.Data.Entity;
 using System.Diagnostics;
+using EFGeneric.Base.Entity;
 using EFGeneric.Context;
 
 namespace EFAnotatedPOC.Context
 {
-    public class Context<T> : EntityContext where T : class
+    public class Context<T, PK> : EntityContext<PK> where T : BaseEntity<PK>
     {
-
         public Context()
-            : base("name=YourContext")
+            : base("name=Netone2004Context")
         {
-			//Log your linq sql queries to console..
             Database.Log = s => Debug.Write(s);
         }
 
