@@ -8,8 +8,9 @@ namespace EFAnotatedPOC.Context
     public class Context<T, PK> : EntityContext<PK> where T : BaseEntity<PK>
     {
         public Context()
-            : base("name=Netone2004Context")
+            : base("name=YourDBContext")
         {
+			//Logging for sql output..
             Database.Log = s => Debug.Write(s);
         }
 
