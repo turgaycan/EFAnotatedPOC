@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using EFAnotatedPOC.Domain;
-using EFAnotatedPOC.Service;
+using Domain.Domain;
+using EFService.Service;
 
 
 namespace EFAnotatedPOC
@@ -15,6 +15,7 @@ namespace EFAnotatedPOC
         
         public static void Main(string[] args)
         {
+
             //try
             //{
             //    PopulateTestData();
@@ -27,6 +28,8 @@ namespace EFAnotatedPOC
 
             try
             {
+
+                currentStateCallInfoService.Save(new CurrentStateCallInfo("a","a","sss",0));
 
                 Console.Out.WriteLine(SqlDbType.DateTime);
 
@@ -57,6 +60,13 @@ namespace EFAnotatedPOC
                 foreach (Student student in students)
                 {
                     Course co = student.Course;
+
+                    List<Student> courseStudents = co.Students;
+                    int courseStudentCount = courseStudents.Count;
+                    foreach (Student eachStudent in courseStudents)
+                    {
+                        //
+                    }
 
                     Console.WriteLine(student.Course.Name);
                 }
